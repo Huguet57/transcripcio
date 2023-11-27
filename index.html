@@ -78,6 +78,11 @@
                 color: #666;
                 margin-top: 10px;
             }
+
+            #fetch-whisper-progress {
+                display: inline-block;
+                font-size: 12px;
+            }
         </style>
     </head>
     <body>
@@ -310,7 +315,7 @@
 
                 cbProgress = function(p) {
                     let el = document.getElementById('fetch-whisper-progress');
-                    el.innerHTML = Math.round(100*p) + '%';
+                    el.innerHTML = 'Descarregant el model: ' + Math.round(100*p) + '%';
                 };
 
                 cbCancel = function() {
