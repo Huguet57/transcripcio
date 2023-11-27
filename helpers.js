@@ -146,9 +146,9 @@ function loadRemote(url, dst, size_mb, cbProgress, cbReady, cbCancel, cbPrint) {
 
                 // alert and ask the user to confirm
                 if (!confirm(
-                    'You are about to download ' + size_mb + ' MB of data.\n' +
-                    'The model data will be cached in the browser for future use.\n\n' +
-                    'Press OK to continue.')) {
+                    'Estàs a punt de descarregar ' + size_mb + ' MB de dades.\n' +
+                    'Les dades del model es desaran en la memòria cau del navegador per a ús futur.\n\n' +
+                    'Prem OK per continuar.')) {
                     cbCancel();
                     return;
                 }
