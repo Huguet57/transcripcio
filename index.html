@@ -83,6 +83,10 @@
                 display: inline-block;
                 font-size: 12px;
             }
+
+            #model {
+                font-size: 12px;
+            }
         </style>
     </head>
     <body>
@@ -264,8 +268,8 @@
                 else printTextarea("SISTEMA: Ja pots transcriure l'àudio!");
 
                 // document.getElementById('model').innerHTML = 'Utilitzant: ' + model_whisper;
-                if (model_whisper === 'small') document.getElementById('model').innerHTML = 'Utilitzant: Transcripció ràpida';
-                if (model_whisper === 'medium') document.getElementById('model').innerHTML = 'Utilitzant: Transcripció de qualitat';
+                if (model_whisper === 'small') document.getElementById('model').innerHTML = 'Utilitzant la transcripció ràpida.';
+                if (model_whisper === 'medium') document.getElementById('model').innerHTML = 'Utilitzant la transcripció de qualitat.';
             }
 
             function loadFile(event, fname) {
