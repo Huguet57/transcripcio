@@ -1,3 +1,4 @@
+import os
 import http.server
 import socketserver
 
@@ -7,12 +8,11 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Cross-Origin-Embedder-Policy', 'require-corp')
         super().end_headers()
 
-# Set the port
+# Get port from the PORT environment variable
 PORT = int(os.getenv('PORT', '8080'))
 
 handler_object = MyHttpRequestHandler
 
 with socketserver.TCPServer(("", PORT), handler_object) as httpd:
-    print("Server started at localhost:" + str(PORT))
+    print("Server started on port: " + str(PORT))
     httpd.serve_forever()
-
