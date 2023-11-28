@@ -595,7 +595,7 @@
                     let hours = date.getHours().toString().padStart(2, '0');
                     let minutes = date.getMinutes().toString().padStart(2, '0');
                     let seconds = date.getSeconds().toString().padStart(2, '0');
-                    printTextarea(`SISTEMA: Processant... Això pot tardar entre 5 i 10 minuts amb ordinadors de fa més de 5 anys. Iniciat a les ${hours}:${minutes}:${seconds}...`);
+                    printTextarea(`SISTEMA: Processant... Això pot tardar entre 5 i 10 minuts amb ordinadors de fa més de 5 anys. (Iniciat a les ${hours}:${minutes}:${seconds})`);
 
                     setTimeout(function() {
                         var ret = Module.full_default(instance, audio, document.getElementById('language').value, nthreads, translate);
