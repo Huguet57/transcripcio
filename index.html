@@ -184,6 +184,17 @@
         </div>
         
 
+        <script type="text/javascript">
+            window.onload = function() {
+                var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+                var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                var isDesktop = window.innerWidth > 600; // Change this value based on what you consider a desktop width
+
+                if ((!isChrome && !isSafari) || !isDesktop) {
+                    alert("Aquesta aplicació requereix Google Chrome o Safari i anar per ordinador per funcionar correctament.");
+                }
+            }
+        </script>
         <script type="text/javascript" src="helpers.js"></script>
         <script type="text/javascript">
             var dropZone = document.getElementById('main-container');
