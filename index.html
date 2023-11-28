@@ -185,6 +185,26 @@
         
 
         <script type="text/javascript" src="helpers.js"></script>
+        <script type="text/javascript">
+            var dropZone = document.getElementById('main-container');
+
+            dropZone.ondragover = function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+                event.dataTransfer.dropEffect = 'copy'; // Show as copy
+            }
+
+            dropZone.ondrop = function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+
+                var files = event.dataTransfer.files; // Fetch FileList object
+                var fileInput = document.getElementById('file');
+                fileInput.files = files; // Overwrite the file input files with the dropped files
+
+                loadAudio({target: fileInput}); // Call your loadAudio function
+            }
+        </script>
         <script type='text/javascript'>
             // TODO: convert audio buffer to WAV
             function setAudio(audio) {
