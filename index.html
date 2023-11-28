@@ -87,12 +87,17 @@
             #model {
                 font-size: 12px;
             }
+
+            #warning-desktop {
+                display: none;
+                color: rgb(165, 0, 0);
+            }
         </style>
     </head>
     <body>
         <div id="main-container">
             <h1>Transcripció automàtica d'àudios</h1>
-            <p>Aquesta aplicació requereix Google Chrome i anar per ordinador per funcionar correctament.</p>
+            <p id="warning-desktop">Aquesta aplicació requereix Google Chrome i anar per ordinador per funcionar correctament.</p>
             <div id="model">
                 <button id="fetch-whisper-small" onclick="loadWhisper('small')">Transcripció ràpida (190 MB)</button>
                 <button id="fetch-whisper-medium" onclick="loadWhisper('medium')">Transcripció de qualitat (514 MB)</button>
@@ -191,7 +196,7 @@
                 var isDesktop = window.innerWidth > 600; // Change this value based on what you consider a desktop width
 
                 if ((!isChrome && !isSafari) || !isDesktop) {
-                    alert("Aquesta aplicació requereix Google Chrome o Safari i anar per ordinador per funcionar correctament.");
+                    document.getElementById("warning-desktop").style.display = "block"; // ("Aquesta aplicació requereix Google Chrome o Safari i anar per ordinador per funcionar correctament.");
                 }
             }
         </script>
