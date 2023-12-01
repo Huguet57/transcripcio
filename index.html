@@ -558,7 +558,7 @@
             // transcribe
             //
 
-            var nthreads = 8;
+            var nthreads = navigator.hardwareConcurrency ? Math.floor(navigator.hardwareConcurrency * 0.8) : 4
 
             function changeThreads(value) {
                 nthreads = value;
