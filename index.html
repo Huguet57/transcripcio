@@ -94,6 +94,10 @@
             #warning-desktop {
                 display: none;
             }
+
+            #loaded-audio {
+                margin: 10px 0;
+            }
         </style>
     </head>
     <body>
@@ -108,6 +112,7 @@
             <div id="input_file">
                 <label for="file">Fitxer d'àudio:</label>
                 <input type="file" id="file" name="file" onchange="loadAudio(event)" />
+                <div id="loaded-audio"></div>
             </div>
             <div class="warning-duration">
                 <em>Només transcriurà els primers 10 minuts de l'àudio. Si el teu àudio és més llarg, talla'l per parts si us plau.</em>
@@ -430,6 +435,25 @@
                             }
 
                             setAudio(audio);
+
+                            var audioElement = document.createElement('audio');
+                            audioElement.setAttribute('controls', '');
+
+                            var sourceElement = document.createElement('source');
+                            sourceElement.setAttribute('type', 'audio/mpeg');
+                            audioElement.appendChild(sourceElement);
+
+                            var loadedAudioDiv = document.getElementById('loaded-audio');
+                            loadedAudioDiv.appendChild(audioElement);
+                            loadedAudioDiv.style.display = 'none';
+
+                            var reader = new FileReader();
+                            reader.onload = function(event) {
+                                sourceElement.setAttribute('src', event.target.result);
+                                audioElement.load();
+                                loadedAudioDiv.style.display = 'block';
+                            };
+                            reader.readAsDataURL(file);
 
                             if (!model_whisper) printTextarea('SISTEMA: Tria quin tipus de transcripció vols utilitzar abans de transcriure!');
                             else printTextarea("SISTEMA: Ja pots transcriure l'àudio!");
