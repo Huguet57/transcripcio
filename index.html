@@ -189,6 +189,21 @@
                 <button id="transcriu-button" onclick="onProcess(false);">Transcriu</button>
             </div>
             <textarea id="output" placeholder="Transcription output..."></textarea>
+
+            <div style="background-color: #f2f2f2; padding: 20px; margin-top: 20px; border-radius: 5px;">
+                <h4>Volem el teu feedback!</h4>
+                <textarea id="suggestionBox" placeholder="Tens suggerències? Què és el que més et molesta? Si us plau, donan's feedback per poder millorar l'aplicatiu..." style="width: 95%; height: 50px; margin-bottom: 10px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 12px;"></textarea>
+                <button id="sendSuggestion" onclick="sendEmail();" style="background-color: #4CAF50; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; margin: 4px 2px; cursor: pointer;">Enviar feedback anònim</button>
+            </div>
+            <script type="text/javascript">
+                function sendEmail() {
+                    var suggestion = document.getElementById('suggestionBox').value;
+                    if (suggestion !== "") {
+                        window.location.href = "mailto:andreuhuguet@gmail.com?subject=Nova suggerència: Fes-me l'acta!&body=" + encodeURIComponent(suggestion);
+                    }
+                }
+            </script>
+
             <div class="credits">
                 <span>Fet amb <a href="https://github.com/ggerganov/whisper.cpp/tree/master/examples/whisper.wasm">whisper.cpp</a></span>
                 <span>Fet per <a href="https://x.com/HuguetAndreu/status/1729269729607717369?s=20">Andreu Huguet</a>. Preguntes o dubtes obra'm a <a href="https://twitter.com/HuguetAndreu">Twitter</a>.</span>
