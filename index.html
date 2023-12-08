@@ -213,7 +213,7 @@
                         document.getElementById('sendSuggestion').innerText = "Enviat!"; // Give 1 second "Enviat!" feedback
                         setTimeout(function() {
                             document.getElementById('sendSuggestion').innerText = "Enviar feedback anònim"; // Reset the button text after 1 second
-                        }, 1000);
+                        }, 2000);
                     }
                 }
             </script>
@@ -627,7 +627,7 @@
                 document.getElementById('transcriu-button').innerText = 'Transcrivint!';
                 setTimeout(function() {
                     document.getElementById('transcriu-button').innerText = 'Transcriu';
-                }, 1000);
+                }, 2000);
 
                 if (!instance) {
                     instance = Module.init('whisper.bin');
