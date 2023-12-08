@@ -624,10 +624,12 @@
 
             function onProcess(translate) {
 
-                document.getElementById('transcriu-button').innerText = 'Transcrivint!';
+                document.getElementById('transcriu-button').innerText = 'Transcrivint...';
+                document.getElementById('transcriu-button').disabled = true;
                 setTimeout(function() {
                     document.getElementById('transcriu-button').innerText = 'Transcriu';
-                }, 2000);
+                    // document.getElementById('transcriu-button').disabled = false;
+                }, 5000);
 
                 if (!instance) {
                     instance = Module.init('whisper.bin');
