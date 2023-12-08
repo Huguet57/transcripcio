@@ -199,7 +199,21 @@
                 function sendEmail() {
                     var suggestion = document.getElementById('suggestionBox').value;
                     if (suggestion !== "") {
-                        window.location.href = "mailto:andreuhuguet@gmail.com?subject=Nova suggerència: Fes-me l'acta!&body=" + encodeURIComponent(suggestion);
+                        var xhr = new XMLHttpRequest();
+                        var url = atob("aHR0cHM6Ly9hb2hzNGRncng0LmV4ZWN1dGUtYXBpLmV1LXdlc3QtMy5hbWF6b25hd3MuY29tL2RlZmF1bHQvU2VuZFN1Z2dlc3Rpb25WaWFFbWFpbFB5dGhvbg==");
+                        var api_key = atob("Y0ttajZmajU3RzJ5b3JmVXVhdndoajQwUHBMV3poYzhRNm03")
+                        xhr.open("POST", url, true);
+                        xhr.setRequestHeader("Content-Type", "application/json");
+                        xhr.setRequestHeader("x-api-key", api_key);
+                        var data = JSON.stringify({"message": suggestion});
+                        xhr.send(data);
+
+                        // Give feedback to the user
+                        document.getElementById('suggestionBox').value = ""; // Reset the text area
+                        document.getElementById('sendSuggestion').innerText = "Enviat!"; // Give 1 second "Enviat!" feedback
+                        setTimeout(function() {
+                            document.getElementById('sendSuggestion').innerText = "Enviar feedback anònim"; // Reset the button text after 1 second
+                        }, 1000);
                     }
                 }
             </script>
