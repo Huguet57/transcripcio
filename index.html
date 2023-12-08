@@ -186,7 +186,7 @@
                     <option value="cy">Gal·lès</option>
                     <option value="yi">Iídix</option>
                 </select>
-                <button onclick="onProcess(false);">Transcriu</button>
+                <button id="transcriu-button" onclick="onProcess(false);">Transcriu</button>
             </div>
             <textarea id="output" placeholder="Transcription output..."></textarea>
             <div class="credits">
@@ -594,6 +594,12 @@
             }
 
             function onProcess(translate) {
+
+                document.getElementById('transcriu-button').innerText = 'Transcrivint!';
+                setTimeout(function() {
+                    document.getElementById('transcriu-button').innerText = 'Transcriu';
+                }, 3000);
+
                 if (!instance) {
                     instance = Module.init('whisper.bin');
 
